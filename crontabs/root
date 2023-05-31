@@ -1,0 +1,5 @@
+# SHELL=/bin/bash
+# PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+
+* * * * * root /git_pull.sh | logger
+* * * * * root /git_commit.sh | logger

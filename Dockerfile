@@ -1,22 +1,39 @@
-FROM openjdk:18-jdk-buster
+FROM openjdk:21-jdk-buster
 
-ARG XMS=512M
-ARG XMX=2G
-ARG KERNEL=KERNEL
-ENV XMS=$XMS \
-    XMX=$XMX \
-    KERNEL=$KERNEL
+ENV XMS=512M \
+    XMX=2G \
+    KERNEL=KERNEL \
+    S3_BUCKET=S3_BUCKET \
+    S3_ACCESS_KEY=S3_ACCESS_KEY \
+    S3_ACCESS_KEY_ID=S3_ACCESS_KEY_ID \
+    S3_PROVIDER="Other" \
+    S3_REGION="ru-central1" \
+    S3_ENDPOINT="storage.yandexcloud.net" \
+    PLUGINS_LIST="[pluginone,plugintwo]" \
+    SSH_KEY_PRIVATE=SSH_KEY_PRIVATE \
+    SSH_KEY_PUBLIC=SSH_KEY_PUBLIC \
+    GIT_REPO=GIT_REPO
 
-workdir /app
+WORKDIR /app
 
 RUN apt-get update && \
     apt-get install -y \
-    netcat &&  \
+    netcat \
+    cron \
+    rclone \
+    git \
+    busybox \
+    python3 && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
+COPY . /
+
+RUN mv /crontabs/* /etc/cron.d/ && \
+    chmod 600 /etc/cron.d/*
+
 # https://ci.md-5.net/job/BungeeCord/
 
-ENTRYPOINT test -f $KERNEL || cp /minecraft/kernel/$KERNEL $KERNEL && java -Xms$XMS -Xmx$XMX -jar $KERNEL nogui
+ENTRYPOINT ["/entrypoint.sh"]
 
-HEALTHCHECK --interval=30s --timeout=5s --start-period=300s CMD nc -z 127.0.0.1 25565
+HEALTHCHECK --interval=30s --timeout=5s --start-period=500s CMD nc -z 127.0.0.1 25565

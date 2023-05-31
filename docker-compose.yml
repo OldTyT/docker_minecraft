@@ -1,0 +1,52 @@
+---
+version: "3.9"
+services:
+  server:
+    image: ghcr.io/oldtyt/docker_minecraft
+    environment:
+      GIT_REPO: "git@github.com:SOMEUSER/SOMEREPO.git"
+      SSH_KEY_PUBLIC: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC1rLb7dpPTZKBQFUTD488mz3hZCUEcgeA0OrhuRdgohfWAvjZkHfFtluRToDLoQdi8K9gHlbfnXeABdMZx0nAVpvtsCiyHoAtamqqimtPdshj00+QnCUgFyrOUInJmqKg2+27u4p0R4Ef4m0llk9+dqHtQb6b47F2UC1mGl+EezTV6Vy7FmQGs179dfbU9VoORw9K214nwKR20jzOeu2Va7djdEAizJDN0tPS95DLFBiyNQKsIi441kns7m7xCqhx3C0RQmYPL2rc3oTd/X5DjLL9ErDtsCz7ikIwa3qqf7LPVfaOR8gPsmoA8mQZgvBBNP6/JFaL+Yn95hRTRkjuJGJXAIWZY0HH5KNQjyMZQANp7b4nPRhXYH9wiaIhZ5A9wnZ1W4wAh+a+Xc0iirQzKiJcARrg9aR2soPyxp/pjdrMrs3p8l1PZThZQUdI2r5Emis8KetYCFxmzoSqVQwAA6w5CmLSEi1qXgyLWF8qB4hTLGB/E4nukvoxo7oJReTM= root@9e2e6eba17dc"
+      SSH_KEY_PRIVATE: |-
+        -----BEGIN OPENSSH PRIVATE KEY-----
+        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
+        -----END OPENSSH PRIVATE KEY-----
+      PLUGINS_LIST: "minecraft-prometheus-exporter-2.5.0,AlwaysDay-v2.2.8,AnimationLib,CommandBlockerFull-2.1.2,HideStream_14_jan_2021,HolographicDisplays-3.0.2,LiteBans,MainPl,ProtocolLib_4_mar_2022_v4.8.0,ProtocolSupport_28_May_2022,SkinsRestorer_14_2_5,SetSpawn-4.3_19_aug_2022,Vault_1_7_3,ViaVersion-4.6.2,AuthServer-3.0"
+      S3_ACCESS_KEY_ID: "S3_ACCESS_KEY_ID"
+      S3_ACCESS_KEY: "SECRET_ACCESS_KEY"
+      S3_BUCKET: "minecraft-resource"
+      KERNEL: "paper-1.18.2-388"
