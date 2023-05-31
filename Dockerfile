@@ -12,7 +12,8 @@ ENV XMS=512M \
     PLUGINS_LIST="[pluginone,plugintwo]" \
     SSH_KEY_PRIVATE=SSH_KEY_PRIVATE \
     SSH_KEY_PUBLIC=SSH_KEY_PUBLIC \
-    GIT_REPO=GIT_REPO
+    GIT_REPO=GIT_REPO \
+    WORLDS="None"
 
 WORKDIR /app
 

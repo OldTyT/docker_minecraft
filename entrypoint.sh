@@ -9,6 +9,7 @@ echo "Host github.com\n\tStrictHostKeyChecking no\n" >> /root/.ssh/config && \
 git clone $GIT_REPO /app && \
 mkdir -p /root/.config/rclone && \
 python3 /rclone_conf_generate.py > /root/.config/rclone/rclone.conf && \
+python3 /world_clone.py && \
 rclone copy ${S3_BUCKET}:${S3_BUCKET}/kernels/${KERNEL}.jar /app/ && echo "Kernel $KERNEL copied" && \
 test -d /app/plugins || mkdir -p /app/plugins && \
 python3 /copy_plugins.py && \

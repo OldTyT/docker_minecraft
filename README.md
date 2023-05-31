@@ -22,5 +22,6 @@ After the container is launched, the repository is cloned (in which the minecraf
 | S3_BUCKET    | `S3_BUCKET`   |
 | S3_ACCESS_KEY    | `S3_ACCESS_KEY`   |
 | S3_ACCESS_KEY_ID    | `S3_ACCESS_KEY_ID`   |
+| WORLDS | `None` |
 
 [Example](https://github.com/OldTyT/docker_minecraft/tree/master/docker-compose.yml)
