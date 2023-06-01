@@ -1,4 +1,4 @@
-FROM openjdk:18-jdk-buster
+FROM openjdk:18-jdk-slim-buster
 
 ENV XMS=512M \
     XMX=2G \

@@ -43,7 +43,7 @@ def get_value_env(key: str, type_value):
 
 def copy_plugins(PLUGINS_LIST: list):
   for plugin in PLUGINS_LIST:
-    subprocess.run(f"/usr/bin/rclone copy {os.getenv('S3_BUCKET')}:{os.getenv('S3_BUCKET')}/plugins/{plugin}.jar /app/plugins/{plugin}.jar".split())
+    subprocess.run(f"/usr/bin/rclone copy {os.getenv('S3_BUCKET')}:{os.getenv('S3_BUCKET')}/plugins/{plugin}.jar /app/plugins/".split())
     print(f"Plugin: {plugin} copied successfully")
 
 
