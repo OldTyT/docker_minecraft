@@ -3,4 +3,4 @@
 
 * * * * * root /git_pull.sh | logger
 * * * * * root /git_commit.sh | logger
-* * * * * root /copy_worlds.sh | logger
+0 * * * * root /copy_worlds.sh | logger
