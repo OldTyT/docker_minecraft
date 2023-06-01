@@ -5,7 +5,7 @@ def main():
     print("Starting restored worlds.")
     worlds = os.getenv("WORLDS")
     if str(worlds) == "None":
-        print("World set is None. Skiping clone worlds.")
+        print("World set is None. Skiping restore worlds.")
         exit()
     subprocess.run(f"/usr/bin/rclone copy {os.getenv('S3_BUCKET')}:{os.getenv('S3_BUCKET')}/worlds/{worlds}.tar.bz2 /tmp/".split())
     subprocess.run(f"tar -xf /tmp/{worlds}.tar.bz2 -C /app".split())
