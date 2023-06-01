@@ -8,12 +8,8 @@ echo "$SSH_KEY_PUBLIC" > ~/.ssh/id_rsa.pub && \
 echo "Host github.com\n\tStrictHostKeyChecking no\n" >> /root/.ssh/config && \
 git clone $GIT_REPO /app && \
 cd /app && \
-grep -ER 'MYSQL_HOST|MYSQL_PORT|MYSQL_DB|MYSQL_USER|MYSQL_PASSWORD' | awk '{print $1}' | tr -d ':' >> .gitignore && \
-find /app/plugins -type f -exec sed -i -e "s/MYSQL_HOST/$MYSQL_HOST/g" {} \; && \
-find /app/plugins -type f -exec sed -i -e "s/MYSQL_PORT/$MYSQL_PORT/g" {} \; && \
-find /app/plugins -type f -exec sed -i -e "s/MYSQL_DB/$MYSQL_DB/g" {} \; && \
-find /app/plugins -type f -exec sed -i -e "s/MYSQL_USER/$MYSQL_USER/g" {} \; && \
-find /app/plugins -type f -exec sed -i -e "s/MYSQL_PASSWORD/$MYSQL_PASSWORD/g" {} \; && \
+grep -ER 'MYSQL_HOST|MYSQL_PORT|MYSQL_DB|MYSQL_USER|MYSQL_PASSWORD' | awk '{print $1}' | tr -d ':' >> /app/.gitignore && \
+find /app/plugins -type f -exec python3 /config_fix.py {} \; && \
 mkdir -p /root/.config/rclone && \
 python3 /rclone_conf_generate.py > /root/.config/rclone/rclone.conf && \
 python3 /world_clone.py && \
