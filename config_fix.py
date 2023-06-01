@@ -28,6 +28,7 @@ def write_file(content: str, file_path: str) -> bool:
 
 
 def main():
+    print(f"Fixing file: {file_path}")
     content = read_file(file_path)
     content = replace_in_text(content)
     write_file(content, file_path)
