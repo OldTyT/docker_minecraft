@@ -16,5 +16,5 @@ python3 /world_clone.py && \
 rclone copy ${S3_BUCKET}:${S3_BUCKET}/kernels/${KERNEL}.jar /app/ && echo "Kernel $KERNEL copied" && \
 test -d /app/plugins || mkdir -p /app/plugins && \
 python3 /copy_plugins.py && \
-env >> /etc/environment && \
+env | grep -E "WORLDS|S3_BUCKET" >> /etc/environment && \
 python3 /task_manager.py
