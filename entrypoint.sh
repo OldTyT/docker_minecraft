@@ -8,7 +8,7 @@ echo "$SSH_KEY_PUBLIC" > ~/.ssh/id_rsa.pub && \
 echo "Host github.com\n\tStrictHostKeyChecking no\n" >> /root/.ssh/config && \
 git clone $GIT_REPO /app && \
 cd /app && \
-find /app/plugins -type f -exec python3 /config_fix.py {} \; && \
+# find /app/plugins -type f -exec python3 /config_fix.py {} \; && \
 mkdir -p /root/.config/rclone && \
 python3 /rclone_conf_generate.py > /root/.config/rclone/rclone.conf && \
 python3 /world_clone.py && \
