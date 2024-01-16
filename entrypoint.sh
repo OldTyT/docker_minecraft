@@ -5,7 +5,7 @@ mkdir -p ~/.ssh && \
 echo "$SSH_KEY_PRIVATE" > ~/.ssh/id_rsa && \
 chmod 600 /root/.ssh/id_rsa && \
 echo "$SSH_KEY_PUBLIC" > ~/.ssh/id_rsa.pub && \
-echo "Host github.com\n\tStrictHostKeyChecking no\n" >> /root/.ssh/config && \
+echo "Host *\n\tStrictHostKeyChecking no\n" >> /root/.ssh/config && \
 git clone $GIT_REPO /app && \
 cd /app && \
 # find /app/plugins -type f -exec python3 /config_fix.py {} \; && \
